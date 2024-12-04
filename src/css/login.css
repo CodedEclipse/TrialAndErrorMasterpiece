@@ -1,0 +1,26 @@
+.border-right{
+    border-right: 0px;
+  }
+  .border-left{
+    border-left: 0px !important;
+    border: 1px solid #dee2e6;
+  }
+  .border-left:focus{
+    box-shadow: none !important;
+  }
+  .border-right:focus{
+    box-shadow: none !important;
+    border-color: #dee2e6;
+  }
+  .user:focus{
+    box-shadow: none !important;
+    border-color: #dee2e6;
+  }
+  .btn:hover{
+    border-left: 0px !important;
+    border: 1px solid #dee2e6;
+  }
+  :not(.btn-check)+.btn:active{
+    border-left: 0px !important;
+    border: 1px solid #dee2e6;
+}
