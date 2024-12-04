@@ -4,3 +4,32 @@
   .border-left{
     border-left: 0px;
   }
+
+  .collapsed-sidebar {
+    width: 80px;
+    transition: width 0.3s;
+  }
+  
+  .nav-link span {
+    margin-right: 10px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: #0d6efd;
+    background-color: #e9ecef;
+    border-left: 4px solid #0d6efd;
+  }
+  
+  .nav-link {
+    white-space: nowrap;
+  }
+  
+  .collapsed-sidebar .nav-link {
+    text-align: center;
+  }
+  
+  .collapsed-sidebar .nav-link span {
+    margin-right: 0;
+  }
+  

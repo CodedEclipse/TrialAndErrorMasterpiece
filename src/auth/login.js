@@ -13,7 +13,7 @@ function Login() {
 
     // Dummy authentication logic
     if (username === 'admin' && password === 'admin123') {
-      navigate('/admin');
+      navigate('/admin/dashboard');
     } else if (username === 'user' && password === 'user123') {
       navigate('/user');
     } else {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './assets/css/admin.css'
 
 function AdminHeader() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function AdminHeader() {
       <div className="d-flex justify-content-between align-items-center">
         <h1 className="h4 mb-0">Admin Dashboard</h1>
         <nav className="d-none d-md-flex">
-          <Link to="/admin/profile" className="btn btn-outline-light me-2">Profile</Link>
+          
           <button onClick={handleLogout} className="btn btn-outline-light">Logout</button>
         </nav>
         {/* Hamburger Menu for Smaller Screens */}
@@ -30,7 +31,6 @@ function AdminHeader() {
             Menu
           </button>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-            <li><Link to="/admin/profile" className="dropdown-item">Profile</Link></li>
             <li><button onClick={handleLogout} className="dropdown-item">Logout</button></li>
           </ul>
         </div>
