@@ -24,3 +24,8 @@
     border-left: 0px !important;
     border: 1px solid #dee2e6;
 }
+
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: rgb(99 175 88) !important;
+}

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import './assets/css/admin.css';
 
-function AdminSidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false); // Sidebar state
+function AdminSidebar({ onSidebarToggle }) {
+  const [isCollapsed, setIsCollapsed] = useState(false); // State to track sidebar collapse
   const location = useLocation();
 
   const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
+    const newState = !isCollapsed; // Toggle the sidebar state
+    setIsCollapsed(newState);
+    onSidebarToggle(newState); // Notify parent about the new state
   };
 
   return (
@@ -15,45 +18,52 @@ function AdminSidebar() {
         isCollapsed ? 'collapsed-sidebar' : ''
       }`}
       style={{
-        width: isCollapsed ? '80px' : '250px',
+        width: isCollapsed ? '65px' : '250px',
         transition: 'width 0.3s',
         position: 'fixed',
       }}
     >
-      {/* Sidebar Header with Hamburger Icon */}
+      {/* Sidebar Header */}
       <div className="d-flex justify-content-between align-items-center p-3">
         {!isCollapsed && <h4 className="mb-0">Admin</h4>}
         <button
           className="btn btn-outline-primary btn-sm"
           onClick={toggleSidebar}
-          style={{ border: 'none', background: 'none', fontSize: '1.5rem' }}
+          style={{
+            border: 'none',
+            background: 'none',
+            fontSize: '1.5rem',
+            cursor: 'pointer',
+          }}
         >
-          ☰
+          {isCollapsed ? (
+            <i className="fa-solid fa-bars"></i>
+          ) : (
+            <i className={`fa-solid fa-xmark ${!isCollapsed ? 'rotate-icon' : ''}`}></i>
+          )}
         </button>
       </div>
 
-      {/* Sidebar Navigation Links */}
+      {/* Navigation Links */}
       <ul className="nav flex-column">
         <li className="nav-item">
           <Link
             to="/admin/dashboard"
-            className={`nav-link ${location.pathname === '/admin/dashboard' ? 'active' : ''}`}
+            className={`nav-link ${
+              location.pathname === '/admin/dashboard' ? 'active' : ''
+            }`}
           >
-            <span role="img" aria-label="dashboard">
-            <i class="fa-solid fa-gauge"></i>
-            </span>{' '}
-            {!isCollapsed && 'Dashboard'}
+            <i className="fa-solid fa-gauge"></i> {!isCollapsed && 'Dashboard'}
           </Link>
         </li>
         <li className="nav-item">
           <Link
             to="/admin/user-management"
-            className={`nav-link ${location.pathname === '/admin/user-management' ? 'active' : ''}`}
+            className={`nav-link ${
+              location.pathname === '/admin/user-management' ? 'active' : ''
+            }`}
           >
-            <span role="img" aria-label="users">
-            <i class="fa-solid fa-users"></i>
-            </span>{' '}
-            {!isCollapsed && 'User Management'}
+            <i className="fa-solid fa-users"></i> {!isCollapsed && 'User Management'}
           </Link>
         </li>
       </ul>
