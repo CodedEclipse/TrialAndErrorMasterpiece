@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DecryptData from '../utils/Decryption';
 import EncryptData from '../utils/Encrption';
-import '../css/login.css';
+// import '../css/login.css';
 import Toaster from '../utils/Toaster';
 
 function Login() {
@@ -20,18 +20,19 @@ function Login() {
     setIsLoading(true); // Show loader
 
     try {
-      const response = await axios.post('http://localhost:9696/admin/adminLogin',EncryptData({
-        username:username,
-        password:password,
-      }));
-      
+      const response = await axios.post(
+        'http://localhost:9696/admin/adminLogin',
+        EncryptData({
+          username: username,
+          password: password,
+        })
+      );
       const data = DecryptData(response.data.encrypted);
-      const name = data.result.first_name;
-      const message = `Welcome Back! ${name}`;
-
       if (data.status) {
+        const name = data.result.first_name;
+        const message = `Welcome Back! ${name}`;
         navigate('/admin/dashboard');
-        Toaster(message); 
+        Toaster(message);
       } else {
         alert('Invalid credentials. Please try again.');
       }
@@ -44,12 +45,28 @@ function Login() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
-      <div className="card p-4 shadow" style={{ maxWidth: '400px', width: '100%' }}>
+    <div
+      className="d-flex align-items-center justify-content-center vh-100"
+      style={{
+        background: 'linear-gradient(to bottom right, #1a237e, #e8eaf6)', // Gradient background
+        minHeight: '100vh',
+      }}
+    >
+      <div
+        className="card p-4 shadow"
+        style={{
+          maxWidth: '400px',
+          width: '100%',
+          backgroundColor: '#fff',
+          borderRadius: '8px',
+        }}
+      >
         <h2 className="text-center mb-4">Login</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-3">
-            <label htmlFor="username" className="form-label">Username or Email Id *</label>
+            <label htmlFor="username" className="form-label">
+              Username or Email Id *
+            </label>
             <input
               type="text"
               id="username"
@@ -61,7 +78,9 @@ function Login() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password *</label>
+            <label htmlFor="password" className="form-label">
+              Password *
+            </label>
             <div className="input-group">
               <input
                 type={showPassword ? 'text' : 'password'}
