@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,Navigate  } from 'react-router-dom';
 import UserRoutes from './User/UserRoutes';
 import AdminRoutes from './Admin/AdminRoutes';
 import Login from './auth1/Login'
-import { toast, ToastContainer } from 'react-toastify';
+import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
       return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/admin/*" element={<AdminRoutes />} />
           {/* User Route */}
           <Route path="/user/*" element={<UserRoutes />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
       <ToastContainer/>
