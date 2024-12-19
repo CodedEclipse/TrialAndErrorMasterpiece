@@ -1,0 +1,31 @@
+.multiSelectContainer {
+    position: relative;
+    text-align: left;
+    width: 17%;
+    margin: 22px;
+}
+
+
+
+.chip {
+    align-items: center;
+    background: #84927d;
+    border-radius: 11px;
+    color: #fff;
+    display: inline-flex;
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 4px 10px;
+}
+
+.highlightOption {
+    background: #84927d;
+    color: black;
+}
+
+.highlightOption :hover{
+    background: #84927d;
+    color: white;
+}

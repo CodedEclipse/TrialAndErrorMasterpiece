@@ -66,6 +66,16 @@ function AdminSidebar({ onSidebarToggle }) {
             <i className="fa-solid fa-users"></i> {!isCollapsed && 'User Management'}
           </Link>
         </li>
+        <li className="nav-item">
+          <Link
+            to="/admin/maketrue"
+            className={`nav-link ${
+              location.pathname === '/admin/maketrue' ? 'active' : ''
+            }`}
+          >
+            <i className="fa-solid fa-users"></i> {!isCollapsed && 'Make True'}
+          </Link>
+        </li>
       </ul>
     </div>
   );
