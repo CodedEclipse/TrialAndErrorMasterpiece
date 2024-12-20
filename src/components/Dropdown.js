@@ -1,30 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Multiselect from "multiselect-react-dropdown";
 
-function DropdownSingle({ title ,option}) {
-    const [placeTitle, setPlaceTitle] = useState('');
-    const [options, setOptions] = useState([]);
-    
-    useEffect(() => {
-        if (title) {
-            setPlaceTitle(title);
-        }
-    }, [title]);
-    useEffect(() => {
-        if (option) {
-            setOptions(option)
-        }
-    }, [option]);
+function DropdownSingle({ title, option, onChange }) {
+    const handleSelect = (selectedList, selectedItem) => {
+        if (onChange) onChange(selectedItem); // Pass the selected item to the parent
+    };
+
     return (
         <Multiselect
-        displayValue="key"
-        placeholder={placeTitle}
-        options={options}
-        disablePreSelectedValues={false}
-        avoidHighlightFirstOption={true}
-        singleSelect
-      />
+            displayValue="key"
+            placeholder={title || "Select an option"}
+            options={option || []}
+            singleSelect
+            onSelect={handleSelect}
+        />
     );
 }
+
 
 export default DropdownSingle;
