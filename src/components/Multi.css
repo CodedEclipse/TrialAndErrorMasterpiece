@@ -1,9 +1,9 @@
-.multiSelectContainer {
+/* .multiSelectContainer {
     position: relative;
     text-align: left;
     width: 17%;
     margin: 22px;
-}
+} */
 
 
 
@@ -28,4 +28,33 @@
 .highlightOption :hover{
     background: #84927d;
     color: white;
+}
+
+.Dropdown-root{
+    text-align: start !important;
+}
+
+.multi-dropdown-container {
+    width: 100%;
+    max-width: 300px; /* Limit the maximum width */
+    max-height: 40px; /* Limit the height */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+
+  .react-datepicker-wrapper {
+    display: block;
+    padding: 0;
+    border: 0;
+    width: fit-content;
+}
+
+li.option {
+    background: #d2e7d6;    
+}
+
+li.option :hover{
+    background: #84927d;
 }
